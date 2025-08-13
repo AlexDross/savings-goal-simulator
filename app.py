@@ -150,9 +150,10 @@ class TestSavingsSimulator:
         assert metrics['percentiles']['25th'] <= metrics['percentiles']['75th'], \
             "25th percentile should be <= 75th percentile"
         
-        # Test shortfall metrics
-        if metrics['success_probability'] < 1.0:
-            assert metrics['expected_shortfall'] >= 0, \
-                "Expected shortfall should be non-negative"
-            assert metrics['cvar_5'] >= metrics['expected_shortfall'], \
-                "
+# Test shortfall metrics
+if metrics['success_probability'] < 1.0:
+    assert metrics['expected_shortfall'] >= 0, \
+        "Expected shortfall should be non-negative"
+    assert metrics['cvar_5'] >= metrics['expected_shortfall'], \
+        "CVaR at 5% should be greater than or equal to expected shortfall"
+
