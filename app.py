@@ -104,7 +104,7 @@ class SavingsSimulator:
         # Adjust for inflation if using real dollars
         if self.params.use_real_dollars:
             inflation_factor = (1 + self.params.inflation_rate) ** (-self.params.years_to_goal)
-            ending_balances *= inflation_factor
+            ending_balances = ending_balances * inflation_factor
         
         return ending_balances, balances
     
